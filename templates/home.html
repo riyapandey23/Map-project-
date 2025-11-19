@@ -1,0 +1,16 @@
+<!-- templates/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Route Finder</title>
+</head>
+<body>
+    <h2>Enter Locations (at least 2):</h2>
+    <form action="/route" method="post">
+        <input type="text" name="location1" placeholder="Location 1" required><br><br>
+        <input type="text" name="location2" placeholder="Location 2" required><br><br>
+        <button type="submit">Get Route</button>
+    </form>
+</body>
+</html>
