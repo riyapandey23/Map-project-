@@ -1,7 +1,8 @@
 import folium
+import os
 from tomtom_geocoding import reverse_geocode
 
-def plot_route(points, filename="static/route_map.html"):
+def plot_route(points, filename="route_map.html"):
     print("🔸 Creating map with start and end markers only...")
     m = folium.Map(location=points[0], zoom_start=6)
 
@@ -26,6 +27,11 @@ def plot_route(points, filename="static/route_map.html"):
     print("🔹 Adding polyline...")
     folium.PolyLine(points, color="blue", weight=4).add_to(m)
 
-    print("🔸 Saving map...")
-    m.save(filename)
-    print(f"✅ Map saved successfully at {filename}")
+    # Ensure we save into the package's static folder so Flask can serve it
+    static_dir = os.path.join(os.path.dirname(__file__), 'static')
+    os.makedirs(static_dir, exist_ok=True)
+    out_path = os.path.join(static_dir, filename)
+
+    print("🔸 Saving map to static folder...")
+    m.save(out_path)
+    print(f"✅ Map saved successfully at {out_path}")

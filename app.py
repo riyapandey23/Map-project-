@@ -37,8 +37,10 @@ def route():
 
     if route_points:
         plot_route(route_points)
-        if os.path.exists("static/route_map.html"):
-            print("✅ Map saved successfully.")
+        # Check the static path where the map is saved
+        static_map_path = os.path.join(os.path.dirname(__file__), 'static', 'route_map.html')
+        if os.path.exists(static_map_path):
+            print(f"✅ Map saved successfully at {static_map_path}.")
         
         distance = round(summary['lengthInMeters'] / 1000, 2)
         duration = round(summary['travelTimeInSeconds'] / 60, 2)
