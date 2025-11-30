@@ -9,7 +9,7 @@
 ### 1. Home Page
 Shows the input fields where users can enter their start and destination locations.
 
-![Home Page Screenshot](/)
+![Home Page Screenshot](/map/m0.jpg)
 
 ---
 
